@@ -24,7 +24,7 @@ def excute_new_company_thread():
                 wirte_file(fil, data=1)
                 return
             spider.replace_ip()
-            for page in range(1, 15):
+            for page in range(1, 11):
                 spider.get_new_company_id(page,fil)
             newcompanyset=spider.new_companyset
             companys = set()
@@ -102,7 +102,7 @@ def excute_new_company():
 if __name__ == '__main__':
     excute_new_company_thread()
     print('after waiting 1h ,start timer..... ')
-    schedule.every().day.at("01:04:22").do(excute_new_company_thread)
+    schedule.every().day.at("01:03:22").do(excute_new_company_thread)
     print('after waiting 1h ,start timer..... ')
     while True:
         schedule.run_pending()

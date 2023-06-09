@@ -61,7 +61,7 @@ def get_redis_company_id_base_cert():
 
 def run2():
     process = []
-    for a in range(40):
+    for a in range(10):
         p = Process(target=get_redis_company_id_base_cert)
         print(p.name)
         p.start()
