@@ -5,7 +5,6 @@ import threading
 import time
 import traceback
 from multiprocessing import Process
-
 from params_setting import cert_params
 from run_siku_person import run_person
 from run_siku_project import run_project
