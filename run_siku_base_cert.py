@@ -87,7 +87,7 @@ if __name__ == '__main__':
         print('获取person')
         run_project()
         print('获取project')
-
+        print(datetime.datetime.now())
         # run2()
     # while True:
     #     time.sleep(2)
