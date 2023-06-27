@@ -16,7 +16,9 @@ from spider.sql import searchdb
 def get_company_base_cert_readfile():
     try:
         times = str(datetime.date.today())
+        # times='2023-06-25'
         fil = f'company_id{times}.txt'
+        # fil = '2023-02-14'
         reads = read_file(fil)
         company_list = []
         for n in reads:
@@ -47,7 +49,7 @@ def get_company_base_cert_readfile():
                     companybase=company_list.pop()
                     cname = companybase[0].replace('\n', '')
                     cid = companybase[1]
-                    scthread = threading.Thread(target=spider.run_search_base_cert, args=(cid, cname),)
+                    scthread = threading.Thread(target=spider.run_search_base_cert, args=(cid, cname,times),)
                     scthread.start()
                     threads.append(scthread)
                 for thread in threads:

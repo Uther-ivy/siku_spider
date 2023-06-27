@@ -6,6 +6,7 @@ import threading
 import time
 import traceback
 from multiprocessing import Process
+
 from params_setting import cert_params
 from run_siku_person import run_person
 from run_siku_project import run_project
@@ -40,7 +41,7 @@ def get_company_base_cert(company_base_cert_list):
                 cid = companybase[1]
                 companys.add(cname)
                 print(cname, cid)
-                scthread = threading.Thread(target=spider.run_search_base_cert, args=(cid,cname), )
+                scthread = threading.Thread(target=spider.run_search_base_cert, args=(cid,cname,times), )
                 scthread.start()
                 threads.append(scthread)
             for thread in threads:
@@ -54,6 +55,8 @@ def get_company_base_cert(company_base_cert_list):
 
 def run_base():
     company_list = list(serch_siku())
+    print(len(company_list))
+    # time.sleep(222)
     lists = []
     start = cert_params[0]
     for a in range(cert_params[1]):
