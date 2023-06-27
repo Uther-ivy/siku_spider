@@ -16,9 +16,7 @@ from spider.sql import searchdb
 def get_company_base_cert_readfile():
     try:
         times = str(datetime.date.today())
-        # times='2023-06-25'
         fil = f'company_id{times}.txt'
-        # fil = '2023-02-14'
         reads = read_file(fil)
         company_list = []
         for n in reads:
