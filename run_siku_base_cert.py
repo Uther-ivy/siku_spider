@@ -1,19 +1,15 @@
 import datetime
 import logging
 import random
-import sys
 import threading
 import time
 import traceback
 from multiprocessing import Process
-
 from params_setting import cert_params
 from run_siku_person import run_person
 from run_siku_project import run_project
-from spider.redis_company import company_four, company_four_over
-from spider.sikuyipingminspider import MinSpider, read_file, wirte_file
-from spider.sql import serch_siku, searchdb
-
+from spider.sikuyipingminspider import MinSpider
+from spider.sql import serch_siku
 
 def get_company_base_cert(company_base_cert_list):
     try:
@@ -46,8 +42,6 @@ def get_company_base_cert(company_base_cert_list):
                 threads.append(scthread)
             for thread in threads:
                 thread.join()
-            for cname in companys:
-                company_four_over(cname)
             spider.companyset.clear()
             spider.randomtime()
     except Exception as e:
