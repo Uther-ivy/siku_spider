@@ -86,7 +86,7 @@ if __name__ == '__main__':
         run_project()
         print('获取project')
         print(datetime.datetime.now())
-        time.sleep(random.random()*300)
+        time.sleep(random.random()*1000)
 
         # run2()
     # while True:
